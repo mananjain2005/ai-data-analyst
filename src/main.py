@@ -80,7 +80,8 @@ while True:
         {
             "question": question,
             "metadata": metadata,
-            "attempts": 0
+            # "attempts": 0,
+            # "critic_attempts": 0
         }
     )
 
@@ -106,6 +107,12 @@ while True:
 
     print("\nExecution Result:")
     print(result["execution_result"])
+
+    # print("\nCritic Passed:")
+    # print(result["critic_passed"])
+
+    # print("\nCritic Feedback:")
+    # print(result["critic_feedback"])
 
     print("\nFinal Answer:")
     print(result["final_answer"])

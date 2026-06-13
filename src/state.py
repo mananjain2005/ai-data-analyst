@@ -16,8 +16,15 @@ class AnalystState(TypedDict):
 
     validation_passed: Optional[bool]
     validation_feedback: Optional[str]
+
     attempts: int
 
     execution_result: Optional[str]
 
     final_answer: Optional[str]
+
+    chart_requested: Optional[bool]
+
+    # critic_passed: Optional[bool]
+    # critic_feedback: Optional[str]
+    # critic_attempts: int

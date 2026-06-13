@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def execute_python(code: str, df: pd.DataFrame):
     """
@@ -10,11 +11,12 @@ def execute_python(code: str, df: pd.DataFrame):
 
     local_vars = {
         "df": df,
-        "pd": pd
+        "pd": pd,
+        "plt": plt
     }
 
     try:
-        exec(code, {}, local_vars)
+        exec(code, local_vars, local_vars)
 
         if "result" not in local_vars:
             raise ValueError(

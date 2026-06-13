@@ -20,3 +20,15 @@ class ValidationOutput(BaseModel):
 
     is_valid: bool
     feedback: str
+
+# Structured Output for LLM that acts as a critic, judging the final answer
+class CriticOutput(BaseModel):
+
+    is_satisfactory: bool
+
+    feedback: str
+
+# Structured Output for the Plan Generator node's LLM
+class PlanStep(BaseModel):
+    step_number: int
+    description: str
