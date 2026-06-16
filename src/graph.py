@@ -4,7 +4,7 @@ from state import AnalystState
 from llm import get_llm
 from schemas import AnalysisResponse, PlannerOutput, ValidationOutput, CriticOutput
 from executor import execute_python
-from dataframe_utils import load_dataframe
+# from dataframe_utils import load_dataframe
 
 # NODE 1: PLANNING NODE
 def planner_node(state):
@@ -194,7 +194,7 @@ result = "../outputs/chart.png"
         "attempts": state.get("attempts", 0) + 1
     }
 
-df = load_dataframe("../data/sample.csv")
+# df = load_dataframe("../data/sample.csv")
 
 # NODE 3: VALIDATE CODE
 def validate_code(state):
@@ -285,7 +285,7 @@ def execute_code(state):
 
     result = execute_python(
         state["generated_code"],
-        df
+        state["df"]
     )
 
     return {
@@ -392,7 +392,8 @@ Provide a concise answer that responds to the user's question.
 
     if isinstance(execution_result, str) and execution_result.endswith(".png"):
         return {
-            "final_answer": f"Chart generated successfully: {execution_result}"
+            "final_answer": f"Chart generated successfully:"
+        #     "final_answer": f"Chart generated successfully: {execution_result}"
         }
 
     response = llm.invoke(prompt)

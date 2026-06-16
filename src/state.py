@@ -1,8 +1,11 @@
 from typing import TypedDict, Optional
+from pandas import DataFrame
 
 # State of our LangGraph Graph
 # shared memory of the graph
 class AnalystState(TypedDict):
+
+    df: DataFrame
 
     question: str
 
